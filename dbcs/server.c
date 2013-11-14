@@ -43,14 +43,13 @@ int main(void) {
         if( fork() == 0 ) {
 			pid_t child = getpid();
 			printf("In child process :%d\n", child);
-			/*
-			 * 首先调用close, 然后再注释掉close,调用shutdown
-			*/
-            close(s); 
+			//首先调用close, 然后再注释掉close,调用shutdown
+			close(s); 
             //shutdown(c, SHUT_WR);
             exit(0);
         }
-        sleep(5);//让子进程先执行
+		//让子进程先执行
+        sleep(5);
 		pid_t parent = getpid();
 		printf("In parent process:%d\n", parent);
 		const char *buf = "server parent process send data";
