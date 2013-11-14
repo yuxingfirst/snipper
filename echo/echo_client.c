@@ -17,7 +17,7 @@ void str_cli(FILE *fp, int sfd ) {
         if( read(sfd, recvline, 1024) == 0 ) {
             printf("server term prematurely.\n"); 
         }
-		shutdown(fd, SHUT_WR);
+		shutdown(sfd, SHUT_WR);
         fputs(recvline, stdout);
     }
 }
